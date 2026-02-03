@@ -1,0 +1,217 @@
+body { font-family: sans-serif; background: #f0e9e4; margin: 0; }
+.top-bar { 
+    background: #8b0000;
+    color: white; 
+    text-align: center; 
+    padding: 20px; 
+    max-height: 150px;
+}
+.TulGY{
+    position: absolute;
+    left: 20px;
+    top: 25px;
+}
+.header-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px; /* Это создаст ровный маленький отступ между всеми элементами внутри */
+}
+
+.subtitle {
+    margin: 0; /* Убираем гигантский стандартный отступ сверху и снизу */
+}
+
+.date-info {
+    margin: 0; /* Убираем отступы у даты */
+    opacity: 0.9; /* Делаем дату чуть менее яркой, чтобы акцент был на заголовке */
+}
+
+.header-center p {
+    margin: 0;
+    opacity: 0.9;
+}
+
+.days-scroll {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding: 20px 20px 5px 20px;
+}
+
+.day-column {
+    width: max-content; /*подстраиваеться под текст */
+    min-width: 200px;
+    max-width: 350px;
+    min-height: 300px;
+    max-height: 400px;
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    flex-shrink: 0;  
+}
+.day-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Распихивает заголовок, список и кнопку по краям */
+    min-height: 320px; /* Немного увеличим высоту для комфорта */
+}
+
+.hw-list {
+    flex-grow: 1; 
+}
+
+.card-footer {
+    display: flex;
+    justify-content: center; 
+    padding-top: 15px;
+}
+
+.materials-btn {
+    background: #000;
+    color: white ;
+    text-decoration: none;
+    padding: 8px 18px;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.materials-btn:hover {
+    background: #ffffff;
+    color: #000;
+    transform: translateY(-2px);
+}
+
+.day-header {
+    display: flex;          
+    flex-direction: column; /* Располагаем элементы (день и дату) друг под другом */
+    align-items: center;    /* Выравниваем их по центру по горизонтали */
+    text-align: center;     /* На всякий случай центрируем сам текст внутри строк */
+    font-size: 0.9em;       /* Делаем шрифт чуть меньше */
+}
+
+.day-header h3 {
+    margin: 0; /* Убирает отступ сверху и снизу у названия дня */
+}
+
+.day-header p {
+    margin: 2px 0 10px 0; /* Оставляем только маленький отступ снизу от даты */
+}
+
+.hw-list ul {
+    margin: 0;         /* Убирает отступ у самого списка */
+    padding-left: 20px; /* Оставляет место только под точки (маркеры) */
+}
+
+
+.past-day {
+    background-color: #a0a0a0 !important;
+    color: #333;
+}
+.tomorrow {
+    background-color: #8b0000 !important;
+    color: white !important;
+}
+.two-days-away {
+    background-color: #e59400 !important;
+    color: white !important;
+}
+.three-days-away {
+    background-color: #f2e205 !important;
+    color: black !important;
+}
+.next-day-away{
+    background-color: #4bdb71 ;
+    color: black;
+}
+
+.days-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.buttonSCR{
+    padding: 0 10px 10px 10px; 
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.buttonSCR button {
+    background: #8b0000;
+    color: white;
+    border: none;  
+    padding: 20px 20px;
+    font-size: 16px;            /* Приятный размер шрифта */
+    font-weight: bold;
+    border-radius: 20px;        /* Сильное скругление (форма таблетки) */
+    cursor: pointer;            /* Чтобы при наведении появлялся "пальчик" */
+    transition: all 0.3s ease;  /* Плавная анимация при наведении */
+    border: none;
+}
+
+/* Эффект при наведении мышки */
+.buttonSCR button:hover {
+    background-color: #d62f2f;  /* Становится ярче (как класс tomorrow) */
+    transform: translateY(-2px); /* Кнопка слегка "подпрыгивает" */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Тень */
+}
+
+/* Эффект при клике */
+.buttonSCR button:active {
+    transform: translateY(0);    /* При нажатии кнопка возвращается на место */
+}
+
+.schedule {
+    position: relative;
+    right: 15px;
+    background: #8b0000;
+    color: white;
+    display: flex;          
+    justify-content: center;
+    width: 100%;            
+    padding: 15px;    
+    text-decoration: none;  
+    clip-path: polygon(2% 0%, 98% 0%, 100% 50%, 98% 100%, 2% 100%, 0% 50%);
+    transition: all 0.3s ease; /*плавная херня*/
+}
+.schedule:hover {
+    background: #d62f2f;      
+    transform: translateY(-3px); 
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); 
+}
+
+.abstract{
+    position: relative;
+    right: 15px;
+    margin-top: 7px;
+    background: #8b0000;
+    color: white;
+    display: flex;          
+    justify-content: center;
+    width: 100%;            
+    padding: 15px;    
+    text-decoration: none; 
+    clip-path: polygon(2% 0%, 98% 0%, 100% 50%, 98% 100%, 2% 100%, 0% 50%);
+    transition: all 0.3s ease; /*плавная херня*/
+}
+.abstract:hover {
+    background: #d62f2f;      
+    transform: translateY(-3px); 
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); 
+}
+
+.footer-contact{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+
+}
+
+.Version{
+    display: flex;
+    justify-content: right;
+    color: rgb(0 0 0 / 0.5)
+}

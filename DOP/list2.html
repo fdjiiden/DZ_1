@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Конспекты</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f0e9e4;
+    }
+
+    .header {
+        background-color: #000;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+    }
+    .header h1 {
+        margin: 0;
+        font-size: 24px;
+    }
+
+    .section-title {
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        color: #333;
+        margin-top: 40px;
+        margin-bottom: 20px;
+    }
+
+    /* Контейнер для всех элементов */
+    .main-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    /* Специальная сетка для важных предметов */
+    .important-subjects {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto auto;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    /* Специальные стили для каждого элемента */
+    .alg-card {
+        grid-column: 3 / 4;
+        grid-row: 1 / 2;
+    }
+
+    .project-card {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+    }
+
+    .tads-card {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+    }
+
+    .inf-card {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+    }
+
+    /* Общие стили для остальных предметов */
+    .other-subjects {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        justify-content: center;
+    }
+
+    /* Медиа-запрос для мобильных устройств */
+    @media (max-width: 600px) {
+        .important-subjects, .other-subjects {
+            grid-template-columns: 1fr;
+        }
+        .alg-card, .project-card, .tads-card, .inf-card {
+            grid-column: auto;
+            grid-row: auto;
+        }
+    }
+
+    .subject-card {
+        background-color: #fff;
+        border: 1px solid #c9c0b8;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transition: transform 0.2s, box-shadow 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100px;
+    }
+
+    .subject-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+
+    .subject-card a {
+        text-decoration: none;
+        color: #333;
+        font-size: 16px;
+        font-weight: bold;
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Конспекты</h1>
+</div>
+
+<h2 class="section-title">Важные предметы</h2>
+<div class="main-container">
+    <div class="important-subjects">
+        <div class="subject-card tads-card">
+            <a href="https://drive.google.com/drive/folders/14sUFRXWzeSC32B8jiEh7gStle75Rn4H7?usp=drive_link" target="_blank">Теория алгоритмов и структуры данных</a>
+        </div>
+        <div class="subject-card inf-card">
+            <a href="https://drive.google.com/drive/folders/17QdqIRn2gPVhEkGmmEdxcmHaTaHlCct1?usp=drive_link" target="_blank">Информатика</a>
+        </div>
+        <div class="subject-card alg-card">
+            <a href="https://drive.google.com/drive/folders/1xM8js3DLaEbn_qwlEaM-DTnxpyHE38z8?usp=drive_link" target="_blank">Алгебра и геометрия</a>
+        </div>
+        <div class="subject-card project-card">
+            <a href="https://drive.google.com/drive/folders/1b5SDm2qsE00q-BgsHZwQTsv4kIyJwVkv?usp=drive_link" target="_blank">Введение в проектную деятельность</a>
+        </div>
+    </div>
+</div>
+
+<h2 class="section-title">Остальные предметы</h2>
+<div class="main-container">
+    <div class="other-subjects">
+        <div class="subject-card">
+            <a href="https://drive.google.com/drive/folders/1sD8iWm-gknm11YqWFaSNXFQsUZUCKGZI?usp=drive_link" target="_blank">Деловые и научные коммуникации</a>
+        </div>
+        <div class="subject-card">
+            <a href="https://drive.google.com/drive/folders/1fAoBYYSsBgEaGL8ZmfhDNgxFNw0W38aa?usp=drive_link" target="_blank">Культура речи и нормы делового взаимодействия</a>
+        </div>
+        <div class="subject-card">
+            <a href="https://drive.google.com/drive/folders/1LJaocMm6dJOnMttOob8D8W1If5AXCnVJ?usp=drive_link" target="_blank">Философия и методология мышления</a>
+        </div>
+        <div class="subject-card">
+            <a href="https://drive.google.com/drive/folders/1fMx5MKA-FjJpM7ROrdtOzVGjeMwcow-d?usp=drive_link" target="_blank">История России</a>
+        </div>
+        <div class="subject-card">
+            <a href="https://drive.google.com/drive/folders/1AuDSkYocvSHabV8xYObLpQ4NIuu5rp0W?usp=drive_link" target="_blank">Английский язык (группа 1)</a>
+        </div>
+        <div class="subject-card">
+            <a href="https://drive.google.com/drive/folders/1s6xzB4pghUu22tPWxVPRqmmhlabfyTEa?usp=drive_link" target="_blank">Английский язык (группа 2)</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
