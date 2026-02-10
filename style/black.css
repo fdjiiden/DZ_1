@@ -1,0 +1,101 @@
+body { font-family: sans-serif; background: #3d3b3a; margin: 0; }
+.top-bar { 
+    background: #6b0000;
+    color: #eeeeee; 
+    text-align: center; 
+    padding: 20px; 
+    max-height: 150px;
+}
+
+.day-column {
+    background: #a0a0a0; 
+}
+.past-day {
+    background-color: #333 !important;
+    color: #a0a0a0;
+}
+.tomorrow {
+    background-color: #6b0000 !important;
+    color: #eeeeee !important;
+}
+.two-days-away {
+    background-color: #c58000 !important;
+    color: #eeeeee !important;
+}
+.three-days-away {
+    background-color: #d3c500 !important;
+    color: #eeeeee !important;
+}
+.next-day-away{
+    background-color: #2eb151 ;
+    color: #eeeeee;
+}
+
+
+
+.buttonSCR button {
+    background: #6b0000;
+    color: #eeeeee;
+    border: none;  
+    padding: 20px 20px;
+    font-size: 16px;            /* Приятный размер шрифта */
+    font-weight: bold;
+    border-radius: 20px;        /* Сильное скругление (форма таблетки) */
+    cursor: pointer;            /* Чтобы при наведении появлялся "пальчик" */
+    transition: all 0.3s ease;  /* Плавная анимация при наведении */
+    border: none;
+}
+/* Эффект при наведении мышки */
+.buttonSCR button:hover {
+    background-color: #8a0f0f;  /* Становится ярче (как класс tomorrow) */
+    transform: translateY(-2px); /* Кнопка слегка "подпрыгивает" */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Тень */
+}
+
+
+.schedule {
+    position: relative;
+    background: #6b0000;
+    color: #eeeeee;
+    display: flex;          
+    justify-content: center;
+    width: 100%;            
+    padding: 15px;    
+    text-decoration: none;  
+    clip-path: polygon(2% 0%, 98% 0%, 100% 50%, 98% 100%, 2% 100%, 0% 50%);
+    transition: all 0.3s ease; /*плавная херня*/
+}
+.schedule:hover {
+    background: #8a0f0f;      
+    transform: translateY(-3px); 
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); 
+}
+
+.abstract{
+    position: relative;
+    margin-top: 7px;
+    background: #6b0000;
+    color: #eeeeee;
+    display: flex;          
+    justify-content: center;
+    width: 100%;            
+    padding: 15px;    
+    text-decoration: none; 
+    clip-path: polygon(2% 0%, 98% 0%, 100% 50%, 98% 100%, 2% 100%, 0% 50%);
+    transition: all 0.3s ease; /*плавная херня*/
+}
+.abstract:hover {
+    background: #8a0f0f;      
+    transform: translateY(-3px); 
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); 
+}
+
+.footer-contact{
+    color: #eeeeee;
+}
+.Version{
+    color: #eeeeee7e;
+}
+.TulGU{
+    
+}

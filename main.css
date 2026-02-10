@@ -1,10 +1,5 @@
-body { font-family: sans-serif; background: #f0e9e4; margin: 0; }
-.top-bar { 
-    background: #8b0000;
-    color: white; 
-    text-align: center; 
-    padding: 20px; 
-    max-height: 150px;
+* {
+    box-sizing: border-box;
 }
 .TulGY{
     position: absolute;
@@ -38,7 +33,6 @@ body { font-family: sans-serif; background: #f0e9e4; margin: 0; }
     gap: 15px;
     padding: 20px 20px 5px 20px;
 }
-
 .day-column {
     width: max-content; /*подстраиваеться под текст */
     min-width: 200px;
@@ -51,6 +45,7 @@ body { font-family: sans-serif; background: #f0e9e4; margin: 0; }
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     flex-shrink: 0;  
 }
+
 .day-column {
     display: flex;
     flex-direction: column;
@@ -106,28 +101,6 @@ body { font-family: sans-serif; background: #f0e9e4; margin: 0; }
     padding-left: 20px; /* Оставляет место только под точки (маркеры) */
 }
 
-
-.past-day {
-    background-color: #a0a0a0 !important;
-    color: #333;
-}
-.tomorrow {
-    background-color: #8b0000 !important;
-    color: white !important;
-}
-.two-days-away {
-    background-color: #e59400 !important;
-    color: white !important;
-}
-.three-days-away {
-    background-color: #f2e205 !important;
-    color: black !important;
-}
-.next-day-away{
-    background-color: #4bdb71 ;
-    color: black;
-}
-
 .days-scroll::-webkit-scrollbar {
     display: none;
 }
@@ -139,68 +112,11 @@ body { font-family: sans-serif; background: #f0e9e4; margin: 0; }
     padding: 10px;
 }
 
-.buttonSCR button {
-    background: #8b0000;
-    color: white;
-    border: none;  
-    padding: 20px 20px;
-    font-size: 16px;            /* Приятный размер шрифта */
-    font-weight: bold;
-    border-radius: 20px;        /* Сильное скругление (форма таблетки) */
-    cursor: pointer;            /* Чтобы при наведении появлялся "пальчик" */
-    transition: all 0.3s ease;  /* Плавная анимация при наведении */
-    border: none;
-}
 
-/* Эффект при наведении мышки */
-.buttonSCR button:hover {
-    background-color: #d62f2f;  /* Становится ярче (как класс tomorrow) */
-    transform: translateY(-2px); /* Кнопка слегка "подпрыгивает" */
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Тень */
-}
 
 /* Эффект при клике */
 .buttonSCR button:active {
     transform: translateY(0);    /* При нажатии кнопка возвращается на место */
-}
-
-.schedule {
-    position: relative;
-    right: 15px;
-    background: #8b0000;
-    color: white;
-    display: flex;          
-    justify-content: center;
-    width: 100%;            
-    padding: 15px;    
-    text-decoration: none;  
-    clip-path: polygon(2% 0%, 98% 0%, 100% 50%, 98% 100%, 2% 100%, 0% 50%);
-    transition: all 0.3s ease; /*плавная херня*/
-}
-.schedule:hover {
-    background: #d62f2f;      
-    transform: translateY(-3px); 
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); 
-}
-
-.abstract{
-    position: relative;
-    right: 15px;
-    margin-top: 7px;
-    background: #8b0000;
-    color: white;
-    display: flex;          
-    justify-content: center;
-    width: 100%;            
-    padding: 15px;    
-    text-decoration: none; 
-    clip-path: polygon(2% 0%, 98% 0%, 100% 50%, 98% 100%, 2% 100%, 0% 50%);
-    transition: all 0.3s ease; /*плавная херня*/
-}
-.abstract:hover {
-    background: #d62f2f;      
-    transform: translateY(-3px); 
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); 
 }
 
 .footer-contact{
@@ -213,5 +129,10 @@ body { font-family: sans-serif; background: #f0e9e4; margin: 0; }
 .Version{
     display: flex;
     justify-content: right;
-    color: rgb(0 0 0 / 0.5)
+}
+
+.Style{
+    float: right;
+    margin-right: 5px;
+    margin-top: -45px;
 }
