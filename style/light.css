@@ -98,6 +98,7 @@ body { font-family: sans-serif; background: #f0e9e4; margin: 0; }
 }
 
 .Style{
-    background-image: url('/Photo/icon-light-mode.png');
+    background-image: url('Photo/icon-light-mode.png');
     background-size: contain;
+
 }
