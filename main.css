@@ -141,4 +141,5 @@
     cursor: pointer;
     background-repeat: no-repeat;
     background-color: transparent;
+    background-size: contain;
 }
