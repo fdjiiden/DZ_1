@@ -70,10 +70,17 @@ function AutoScroll() {
     if (targetCard) {
         targetCard.scrollIntoView({ behavior: 'smooth', inline: 'center' });
     }
+    window.scrollTo(0,0);
 }
 
 // Прокрутка ленты колесиком мыши (горизонтально)
 document.addEventListener('DOMContentLoaded', () => {
+    // 1. ПРОВЕРКА СОХРАНЕННОЙ ТЕМЫ
+    const savedTheme = localStorage.getItem('user-theme');
+    if (savedTheme) {
+        document.getElementById("style_l").href = savedTheme;
+    }
+
     renderSchedule(); 
 
     const scrollContainer = document.getElementById('days-container');
@@ -84,6 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
             scrollContainer.scrollLeft += evt.deltaY;
         });
     }
+    
 });
 
 const updateTopBarDate = () => {
@@ -105,11 +113,15 @@ const updateTopBarDate = () => {
     }
 };
 
+
+
 function Stylejs(){
     let a = document.getElementById("style_l");
-    if(a.getAttribute('href') ==  'style/light.css') a.href = 'style/black.css';
-    else a.href = 'style/light.css';
+    let new_a = '';
+    if(a.getAttribute('href') ==  'style/light.css') new_a = 'style/black.css';
+    else new_a = 'style/light.css';
+    a.href = new_a;
+    localStorage.setItem('user-theme',new_a);
 }
 
 updateTopBarDate();
-

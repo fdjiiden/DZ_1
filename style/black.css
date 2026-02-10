@@ -96,6 +96,7 @@ body { font-family: sans-serif; background: #3d3b3a; margin: 0; }
 .Version{
     color: #eeeeee7e;
 }
-.TulGU{
-    
+.Style{
+    background-image: url('/Photo/icon-dark-mode.png');
+    background-size: contain;
 }
