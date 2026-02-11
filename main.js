@@ -27,8 +27,8 @@ const renderSchedule = async () => {
             const card = document.createElement('div');
             card.className = 'day-column';
 
-            // Оформление цветов в зависимости от удаленности дня
-            if (i < 0) card.classList.add('past-day');
+            // Оформление цветов
+            if (i < 1) card.classList.add('past-day');
             else if (i === 1) {
                 card.classList.add('tomorrow1');
                 if (tasks.length > 0) card.classList.add('tomorrow');
@@ -133,3 +133,5 @@ function Stylejs(){
 }
 
 updateTopBarDate();
+
+
