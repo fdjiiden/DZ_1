@@ -75,10 +75,12 @@ function AutoScroll() {
 
 // Прокрутка ленты колесиком мыши (горизонтально)
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. ПРОВЕРКА СОХРАНЕННОЙ ТЕМЫ
     const savedTheme = localStorage.getItem('user-theme');
-    if (savedTheme) {
-        document.getElementById("style_l").href = savedTheme;
+    const themeLink = document.getElementById("style_l");
+        if (savedTheme) {
+        themeLink.href = savedTheme;
+    } else {
+        themeLink.href = 'style/light.css'; 
     }
 
     renderSchedule(); 
