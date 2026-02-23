@@ -1,6 +1,19 @@
 * {
     box-sizing: border-box;
 }
+body{
+    animation: fadeIn 1ms ease-in-out;
+}
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+.top-bar{
+    text-align: center; 
+    padding: 20px; 
+    max-height: 115px;
+    min-height: 115px;
+}
 .TulGY{
     position: absolute;
     left: 20px;
@@ -16,6 +29,7 @@
 .subtitle {
     margin: 0; /* Убираем гигантский стандартный отступ сверху и снизу */
 }
+
 
 .date-info {
     margin: 0; /* Убираем отступы у даты */
@@ -123,7 +137,6 @@
     display: flex;
     justify-content: center;
     margin-top: 15px;
-
 }
 
 .Version{
@@ -132,9 +145,6 @@
 }
 
 .Style{
-    float: right;
-    margin-right: 5px;
-    margin-top: -65px;
     width: 50px;
     height: 50px;
     border: none;
@@ -142,4 +152,52 @@
     background-repeat: no-repeat;
     background-color: transparent;
     background-size: contain;
+    position: absolute;
+    right: 20px;
+    top: 35px;
+    cursor: pointer;
+}
+/*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/ 
+.a2{
+    display: flex;
+    justify-content: space-between;
+}
+.a2 a{
+    margin-top: 20px;
+    font-size: 20px;
+    text-decoration: none;
+    text-align: center;
+    padding: 50px 50px 50px 50px;
+    flex: 1;
+    border-radius: 20px;
+    border-width: 1px;
+    border-style: solid;
+}
+.Prog{
+    margin-left: 50px;
+}
+.CUCuT{
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.Phiz{
+    margin-right: 50px;
+}
+.a2 a:hover{
+    transition: all 0.3s ease;      
+    transform: translateY(-3px); 
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); 
+}
+.a2 img {
+    max-width: 50px;
+    display: block;      
+    position: absolute;
+    transform: translate(-40px, 10px);
+}
+.strelka{
+    position: absolute;
+    max-width: 50px;
+    left: 20px;
+    top: 35px;
+    cursor: pointer;
 }

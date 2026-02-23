@@ -2,9 +2,6 @@ body { font-family: sans-serif; background: #3d3b3a; margin: 0; }
 .top-bar { 
     background: #6b0000;
     color: #eeeeee; 
-    text-align: center; 
-    padding: 20px; 
-    max-height: 150px;
 }
 
 .day-column {
@@ -53,24 +50,6 @@ body { font-family: sans-serif; background: #3d3b3a; margin: 0; }
 }
 
 
-.schedule {
-    position: relative;
-    background: #6b0000;
-    color: #eeeeee;
-    display: flex;          
-    justify-content: center;
-    width: 100%;            
-    padding: 15px;    
-    text-decoration: none;  
-    clip-path: polygon(2% 0%, 98% 0%, 100% 50%, 98% 100%, 2% 100%, 0% 50%);
-    transition: all 0.3s ease; /*плавная херня*/
-}
-.schedule:hover {
-    background: #8a0f0f;      
-    transform: translateY(-3px); 
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); 
-}
-
 .abstract{
     position: relative;
     margin-top: 7px;
@@ -99,4 +78,14 @@ body { font-family: sans-serif; background: #3d3b3a; margin: 0; }
 .Style{
     background-image: url('../Photo/dark.png');
     background-size: contain;
+}
+/*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/ 
+.a2 a{
+    color: #dfdfdf;
+    background-color: #333;
+    border-color: black;
+}
+.a2 a:hover{
+    background: #6b0000;
+    border-color: #6b0000;
 }
