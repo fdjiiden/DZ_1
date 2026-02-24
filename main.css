@@ -248,21 +248,25 @@ body{
         max-width: 80%; /* Чтобы текст не упирался в края */
     }
 
-    /* Дата (если это отдельный класс, например .date) */
-    .date-text { 
-        font-size: 0.75rem;
-        opacity: 0.8;
-    }
-
-    /* Кнопки внизу (a2) */
     .a2 {
-        gap: 10px; /* Немного плотнее */
-        margin: 15px 10px;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        padding: 0 20px;
+        margin: 10px;
     }
-
     .a2 a {
-        padding: 15px 10px; /* Делаем кнопки менее "толстыми" */
-        font-size: 0.9rem;
+        width: 100%;
+        margin: 0;
+        padding: 30px 10px; 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .a2 img {
+        position: static;
+        transform: none;
+        margin-bottom: 10px;
     }
 }
 
