@@ -13,6 +13,7 @@ body{
     padding: 20px; 
     max-height: 115px;
     min-height: 115px;
+    max-width: auto;
 }
 .TulGY{
     position: absolute;
