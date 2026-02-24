@@ -225,8 +225,6 @@ body{
         justify-content: flex-end; /* Подтягиваем содержимое к низу шапки */
         position: relative;
     }
-
-
     .TulGY {
         position: absolute;
         width: 90px; /* Еще чуть компактнее */
@@ -275,9 +273,3 @@ body{
         margin-bottom: 10px;
     }
 }
-
-
-
-
-
-

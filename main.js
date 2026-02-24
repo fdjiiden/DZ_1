@@ -21,8 +21,13 @@ const renderSchedule = async () => {
         for (let i = -7; i <= 14; i++) {
             const currentDate = new Date();
             currentDate.setDate(today.getDate() + i);
-            const dateKey = currentDate.toISOString().split('T')[0];
+            const year = currentDate.getFullYear();
+            const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+            const day = String(currentDate.getDate()).padStart(2, '0');
+            const dateKey = `${year}-${month}-${day}`; 
+
             const tasks = homeworkData[dateKey] || [];
+
 
             const card = document.createElement('div');
             card.className = 'day-column';
