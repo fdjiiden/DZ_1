@@ -139,9 +139,11 @@ body{
 }
 
 .footer-contact{
-    display: flex;
-    justify-content: center;
+    text-align: center;
     margin-top: 15px;
+}
+.footer-contact a{
+    text-align: center;
 }
 
 .Version{
@@ -161,6 +163,9 @@ body{
     right: 20px;
     top: 35px;
     cursor: pointer;
+}
+.blank{
+    text-align: center;
 }
 /*------------------------------------------------------------ Лабы_и_практики ---------------------------------------------------------------------------------------------*/ 
 .a2{
