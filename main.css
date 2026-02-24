@@ -226,7 +226,7 @@ body{
     }
     .TulGY {
         position: absolute;
-        width: 150px; 
+        width: 130px; 
         top: 40px;
         left: 5px;
     }
@@ -240,7 +240,7 @@ body{
         top: 35px
     }
     .subtitle {
-        font-size: 1rem;
+        font-size: 0,8rem;
     }
     .a2 {
         flex-direction: column;
