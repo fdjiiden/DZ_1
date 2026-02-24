@@ -214,7 +214,7 @@ body{
 
 
 /* ------------------------------------------------------------ Мобильная версия --------------------------------------------------------------------------------------------- */
-media (max-width: 900px) {
+@media (max-width: 900px) {
     .top-bar {
         /* Уменьшаем общую высоту шапки */
         min-height: 100px; 
@@ -226,9 +226,10 @@ media (max-width: 900px) {
         position: relative;
     }
 
+
     .TulGY {
         position: absolute;
-        width: 100px; /* Еще чуть компактнее */
+        width: 90px; /* Еще чуть компактнее */
         top: 10px;
         left: 10px;
     }
@@ -246,12 +247,12 @@ media (max-width: 900px) {
         width: 35px;
     }
     .subtitle {
-        font-size: 0.85rem;
-        margin-top: 40px; /* Уменьшаем отступ сверху, чтобы поднять заголовок */
-        margin-bottom: 5px; 
-        text-align: center;
-        max-width: 80%; /* Чтобы текст не упирался в края */
+    margin-top: 50px !important; /* Отступ ровно столько, чтобы не задеть логотип */
+    margin-bottom: 10px;
+    line-height: 1.2; /* Чтобы строки не слипались */
+    font-size: 1rem; /* Чуть уменьшим, чтобы текст не дробился на много строк */
     }
+
 
     .a2 {
         flex-direction: column;
@@ -274,6 +275,7 @@ media (max-width: 900px) {
         margin-bottom: 10px;
     }
 }
+
 
 
 
