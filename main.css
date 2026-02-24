@@ -214,52 +214,58 @@ body{
 
 
 /* ------------------------------------------------------------ Мобильная версия --------------------------------------------------------------------------------------------- */
-@media (max-width: 1000px) {
+@media (max-width: 900px) {
     body::-webkit-scrollbar {
-    display: none;
+        display: none;
     }
+
     .top-bar {
-        height: 150px; 
+        min-height: 120px; 
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding-top: 20px;
+        position: relative;
     }
     .TulGY {
         position: absolute;
-        width: 130px; 
-        top: 40px;
-        left: 5px;
+        width: 100px; 
+        top: 15px;
+        left: 10px;
     }
-    .Style{
+    .Style {
         position: absolute;
-        top: 35px;
-        right: 5px;
-    }
-    .strelka {
-        left: 5px;
-        top: 35px
+        top: 15px;
+        right: 10px;
     }
     .subtitle {
-        font-size: 0,8rem;
+        font-size: 0.8rem;
+        margin-top: 60px; 
+        text-align: center;
     }
     .a2 {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-        padding: 0 20px;
-        margin: 10px;
-    }
-    .a2 a {
-        width: 100%;
-        margin: 0;
-        padding: 30px 10px; 
         display: flex;
         flex-direction: column;
         align-items: center;
+        gap: 12px;
+        padding: 0 15px;
+        margin: 20px 0;
+    }
+    .a2 a {
+        width: 100%;
+        box-sizing: border-box; 
+        margin: 0;
+        padding: 20px 10px; 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 12px;
     }
     .a2 img {
         position: static;
         transform: none;
-        margin-bottom: 10px;
+        margin-bottom: 8px;
+        width: 40px; 
     }
 }
+
