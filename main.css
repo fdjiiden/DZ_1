@@ -228,20 +228,20 @@ body{
     .TulGY {
         position: absolute;
         width: 90px; /* Еще чуть компактнее */
-        top: 40px;
+        top: 50px;
         left: 10px;
     }
 
     .Style {
         position: absolute;
-        top: 35px;
+        top: 45px;
         right: 10px;
         width: 35px; /* Ограничим размер иконки переключателя */
     }
     .strelka {
         position: absolute;
         left: 10px;
-        top: 35px;
+        top: 45px;
         width: 35px;
     }
     .subtitle {
@@ -273,4 +273,5 @@ body{
         margin-bottom: 10px;
     }
 }
+
 
