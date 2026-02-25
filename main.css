@@ -217,7 +217,7 @@ body{
 @media (max-width: 900px) {
     .top-bar {
         /* Уменьшаем общую высоту шапки */
-        min-height: 100px; 
+        max-height: 100px; 
         padding: 15px 0 10px 0;
         display: flex;
         flex-direction: column;
@@ -228,20 +228,20 @@ body{
     .TulGY {
         position: absolute;
         width: 90px; /* Еще чуть компактнее */
-        top: 10px;
+        top: 40px;
         left: 10px;
     }
 
     .Style {
         position: absolute;
-        top: 10px;
+        top: 35px;
         right: 10px;
         width: 35px; /* Ограничим размер иконки переключателя */
     }
     .strelka {
         position: absolute;
         left: 10px;
-        top: 10px;
+        top: 35px;
         width: 35px;
     }
     .subtitle {
@@ -273,3 +273,4 @@ body{
         margin-bottom: 10px;
     }
 }
+
