@@ -218,7 +218,7 @@ body{
     .top-bar {
         /* Уменьшаем общую высоту шапки */
         max-height: 100px; 
-        padding: 15px 0 10px 0;
+        padding: 15px 0 25px 0;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -273,5 +273,3 @@ body{
         margin-bottom: 10px;
     }
 }
-
-
