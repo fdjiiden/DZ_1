@@ -225,23 +225,24 @@ body{
         justify-content: flex-end; /* Подтягиваем содержимое к низу шапки */
         position: relative;
     }
+    
     .TulGY {
         position: absolute;
         width: 90px; /* Еще чуть компактнее */
-        top: 50px;
+        top: 45px;
         left: 10px;
     }
 
     .Style {
         position: absolute;
-        top: 45px;
+        top: 40px;
         right: 10px;
         width: 35px; /* Ограничим размер иконки переключателя */
     }
     .strelka {
         position: absolute;
         left: 10px;
-        top: 45px;
+        top: 40px;
         width: 35px;
     }
     .subtitle {
