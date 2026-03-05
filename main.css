@@ -172,28 +172,28 @@ body{
     display: flex;
     justify-content: space-between;
 }
-.a2 a{
+.a2 a, .a2 button{
     margin-top: 20px;
     font-size: 20px;
     text-decoration: none;
     text-align: center;
-    padding: 50px 50px 50px 50px;
+    padding: 50px;
     flex: 1;
     border-radius: 20px;
     border-width: 1px;
     border-style: solid;
 }
-.Prog{
+.Prog, .OpenKurVB1{
     margin-left: 50px;
 }
 .CUCuT{
     margin-left: 50px;
     margin-right: 50px;
 }
-.Phiz{
+.Phiz, .OpenKurVB2{
     margin-right: 50px;
 }
-.a2 a:hover{
+.a2 a:hover, .a2 button:hover{
     transition: all 0.3s ease;      
     transform: translateY(-3px); 
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); 
@@ -211,7 +211,20 @@ body{
     top: 35px;
     cursor: pointer;
 }
-
+#dialog1, #dialog2{
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+.Disk_p{
+    margin: 5px;
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+}
 
 /* ------------------------------------------------------------ Мобильная версия --------------------------------------------------------------------------------------------- */
 @media (max-width: 900px) {
@@ -260,7 +273,7 @@ body{
         padding: 0 20px;
         margin: 10px;
     }
-    .a2 a {
+    .a2 a, .a2 button {
         width: 100%;
         margin: 0;
         padding: 30px 10px; 

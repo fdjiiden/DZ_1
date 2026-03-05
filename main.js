@@ -137,6 +137,32 @@ function Stylejs(){
     localStorage.setItem('user-theme',new_a);
 }
 
+async function ButtonKur1() {
+    const dialog = document.getElementById('dialog1');
+    dialog.showModal();
+
+    const choice = await new Promise((resolve) => {
+        dialog.onclick = (e) => {
+            if (e.target.tagName === 'BUTTON') {
+                dialog.close();
+                resolve(e.target.value);
+            }
+        };
+    });
+}
+async function ButtonKur2() {
+    const dialog = document.getElementById('dialog2');
+    dialog.showModal();
+
+    const choice = await new Promise((resolve) => {
+        dialog.onclick = (e) => {
+            if (e.target.tagName === 'BUTTON') {
+                dialog.close();
+                resolve(e.target.value);
+            }
+        };
+    });
+}
 updateTopBarDate();
 
 

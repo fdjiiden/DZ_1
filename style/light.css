@@ -81,12 +81,12 @@ body { font-family: sans-serif; background: #f0e9e4; margin: 0; }
     background-size: contain;
 }
 /*------------------------------------------------------------ Лабы_и_практики ---------------------------------------------------------------------------------------------*/ 
-.a2 a {
+.a2 a, .a2 button {
     color: #333;
     background-color: white;
     border-color: #333;
 }
-.a2 a:hover{
+.a2 a:hover, .a2 button:hover{
     background: #8b0000;
     color: white;   
     border-color: #8b0000; 
