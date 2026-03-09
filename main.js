@@ -140,7 +140,6 @@ function Stylejs(){
 async function ButtonKur1() {
     const dialog = document.getElementById('dialog1');
     dialog.showModal();
-
     const choice = await new Promise((resolve) => {
         dialog.onclick = (e) => {
             if (e.target.tagName === 'BUTTON') {
@@ -153,7 +152,6 @@ async function ButtonKur1() {
 async function ButtonKur2() {
     const dialog = document.getElementById('dialog2');
     dialog.showModal();
-
     const choice = await new Promise((resolve) => {
         dialog.onclick = (e) => {
             if (e.target.tagName === 'BUTTON') {
