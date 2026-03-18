@@ -211,10 +211,16 @@ body{
     top: 35px;
     cursor: pointer;
 }
-#dialog1, #dialog2{
+#dialog1, #dialog2, #dialog3{
     border-radius: 10px;
     border: 1px solid #ccc;
     padding: 20px;
+}
+#dialog1 button, #dialog2 button, #dialog3 button{
+    color: #8b0000; 
+    border-radius: 10px; 
+    border: none; 
+    cursor: pointer;
 }
 .Disk_p{
     margin: 5px;
@@ -285,5 +291,21 @@ body{
         position: static;
         transform: none;
         margin-bottom: 10px;
+    }
+    #dialog3 {
+        display: flex;       
+        flex-wrap: wrap;    
+        gap: 10px;
+        justify-content: center;
+        height: auto;            
+        min-height: min-content;
+    }
+    #dialog3 button {
+    flex-basis: 100%;
+    background: transparent;
+    cursor: pointer;
+    padding: 10px;
+    margin-top: 10px;
+    font-weight: bold;
     }
 }

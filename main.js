@@ -146,6 +146,7 @@ async function ButtonKur1() {
                 dialog.close();
                 resolve(e.target.value);
             }
+            
         };
     });
 }
@@ -159,8 +160,36 @@ async function ButtonKur2() {
                 resolve(e.target.value);
             }
         };
+        
     });
 }
+document.getElementById('dialog3').style.setProperty('display', 'none', 'important');
+
+async function ButtonKur3() {
+    const dialog = document.getElementById('dialog3');
+    const closeBtn = dialog.querySelector('button');
+
+    // 2. При вызове функции включаем flex, чтобы окно появилось
+    dialog.style.setProperty('display', 'flex', 'important');
+    dialog.showModal();
+
+    return new Promise((resolve) => {
+        const closeAction = () => {
+            dialog.close();
+            // 3. При закрытии снова полностью скрываем
+            dialog.style.setProperty('display', 'none', 'important');
+            resolve("cancelled");
+        };
+
+        closeBtn.onclick = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            closeAction();
+        };
+
+    });
+}
+
 updateTopBarDate();
 
 
