@@ -71,6 +71,7 @@ const renderSchedule = async () => {
     } catch (error) {
         console.error("Ошибка загрузки DZ.json. Убедитесь, что используете Live Server!", error);
     }
+    updateTopBarDate();
 };
 
 
@@ -109,12 +110,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const updateTopBarDate = () => {
     const dateElement = document.getElementById('current-date');
-    
     if (dateElement) {
         const today = new Date();
-        
-        // Настраиваем формат вывода: четверг, 29 января 2026 г.
-        const options = { 
+            const options = { 
             weekday: 'long', 
             year: 'numeric', 
             month: 'long', 
@@ -189,7 +187,5 @@ async function ButtonKur3() {
 
     });
 }
-
-updateTopBarDate();
 
 
