@@ -232,6 +232,7 @@ body{
     align-items: center;
     text-align: center;
     padding: 0;
+    transition: 0.2s ease;
 }
 #dialog1 button, #dialog2 button, #dialog3 button{
     color: #8b0000; 
@@ -246,6 +247,11 @@ body{
     font-size: 18px;
     transition: 0.2s ease;
 }
+#dialog1 a:hover, #dialog2 a:hover, #dialog3 a:hover{
+    background-color: #6b0000;
+    transform: translateY(-3px); 
+    border: none;
+}
 #dialog3{
     width: 600px;
     height: 140px;
@@ -257,7 +263,6 @@ body{
 #dialog1 button:hover, #dialog2 button:hover, #dialog3 button:hover{
     color: #ccc;
     background-color: #8b0000;
-    
 }
 .Disk_p{
     margin: 5px;
@@ -340,5 +345,4 @@ body{
     #dialog1 button, #dialog2 button, #dialog3 button{
     margin: 2px;
     }
-
 }
