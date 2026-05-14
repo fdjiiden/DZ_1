@@ -211,16 +211,53 @@ body{
     top: 35px;
     cursor: pointer;
 }
-#dialog1, #dialog2, #dialog3{
+#dialog1, #dialog2, #dialog3 {
     border-radius: 10px;
     border: 1px solid #ccc;
     padding: 20px;
+    height: 120px;
+    width: 300px;
+}
+#dialog1[open], #dialog2[open], #dialog3[open] {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    gap: 15px;
+}
+#dialog1 a, #dialog2 a, #dialog3 a{
+    height: 50px;
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0;
 }
 #dialog1 button, #dialog2 button, #dialog3 button{
     color: #8b0000; 
     border-radius: 10px; 
     border: none; 
     cursor: pointer;
+    position: absolute;
+    right: 0;
+    margin-right: 3px;
+    top:0;
+    margin-top: 3px;
+    font-size: 18px;
+    transition: 0.2s ease;
+}
+#dialog3{
+    width: 600px;
+    height: 140px;
+}
+#dialog3 a{
+    height: 70px;
+    width: 300px;
+}
+#dialog1 button:hover, #dialog2 button:hover, #dialog3 button:hover{
+    color: #ccc;
+    background-color: #8b0000;
+    
 }
 .Disk_p{
     margin: 5px;
@@ -297,15 +334,11 @@ body{
         flex-wrap: wrap;    
         gap: 10px;
         justify-content: center;
-        height: auto;            
         min-height: min-content;
+        height: 200px;
     }
-    #dialog3 button {
-    flex-basis: 100%;
-    background: transparent;
-    cursor: pointer;
-    padding: 10px;
-    margin-top: 10px;
-    font-weight: bold;
+    #dialog1 button, #dialog2 button, #dialog3 button{
+    margin: 2px;
     }
+
 }
