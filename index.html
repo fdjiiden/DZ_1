@@ -7,32 +7,82 @@
     <link rel="icon" href="Photo/images-Photoroom.png" type="image/png">
     <link id="style_" rel="stylesheet" href="main.css"></link>
     <link id ="style_l" rel="stylesheet" href="style/light.css"></link>
+    <base target="_blank">
 </head>
 <body>
     <div class="top-bar">
         <a href="https://lk.tsu.tula.ru:3443/lk/" target="_blank"><img src="Photo/tulsu1.png" width="250" class="TulGY" ></a>
         <div class="header-center">
             <h2 class="subtitle">Ближайшие Домашние задания</h2>
-            <p class="header-cente p">Сегодняшняя дата: </p>
+        <button onclick="AutoScroll()" class = "buttonSCR_">Сегодняшняя дата:</button>
             <p id="current-date" class="date-info"></p>
         </div>
-        <button class="Style" onclick="Stylejs()"></button>
+
+
+        <div class="dropdown-wrapper">
+            <button onclick="toggleMenu()" class="buttonSCR">Полезные материалы ▾</button>
+            <div id="dropdown-menu" class="dropdown-content">
+                <h3 style="margin-top: 0;">Материалы для учебы</h3>
+                <button class="Style" onclick="Stylejs()"></button>
+                <!-- Подменю 1: Лабы -->
+                <div class="sub-dropdown-wrapper">
+                    <button onclick="toggleSubMenu('sub-lab')" class="buttonSCR">Лабораторные работы и практика ‹</button>
+                    <div id="sub-lab" class="sub-dropdown-content">
+                        <a href="https://drive.google.com/drive/folders/1kweg9CrbxXgGSjljJpOoShMuDCtxs4gY?usp=drive_link" class="abstract">Програмирование</a>
+                        <a href="https://docs.google.com/document/d/1_SGBUETv9a_8whfGxNgBYX74rWIxGdbq/edit?usp=drive_link&ouid=107920682651186030216&rtpof=true&sd=true" class="abstract">ОСиС</a>
+                        <a href="https://drive.google.com/drive/folders/1U-KdqqY-oFuQVezlfcPvioinUMVBLEfj?usp=drive_link" class="abstract">Физика</a>
+                        <a href="https://drive.google.com/drive/folders/1ZgiJglXWwl5uS8rAqoTTch8Vkx-mk2Sc?usp=sharing" class="abstract">АВС</a>
+                    </div>
+                </div>
+
+                <!-- Подменю 2: Курсовые -->
+                <div class="sub-dropdown-wrapper">
+                    <button onclick="toggleSubMenu('sub-kurs')" class="buttonSCR">Курсовые ‹</button>
+                    <div id="sub-kurs" class="sub-dropdown-content">
+                        <a href="#" class="abstract">Програмирование</a>
+                        <a href="#" class="abstract">АВС</a>
+                    </div>
+                </div>
+
+                <!-- Подменю 3: Учебники -->
+                <div class="sub-dropdown-wrapper">
+                    <button onclick="toggleSubMenu('sub-book')" class="buttonSCR">Учебники ‹</button>
+                    <div id="sub-book" class="sub-dropdown-content">
+                        <a href="#" class="abstract">Berman - Математический анализ</a>
+                        <a href="#" class="abstract">Gmurman - Теория вероятностей</a>
+                    </div>
+                </div>
+
+                <!-- Подменю 4: Архив -->
+                <div class="sub-dropdown-wrapper">
+                    <button onclick="toggleSubMenu('sub-arch')" class="buttonSCR">Архив ‹</button>
+                    <div id="sub-arch" class="sub-dropdown-content">
+                        <a href="https://drive.google.com/drive/folders/14XGyf4xsqHApTrH0EYdBDxtt2qNuNYae?usp=drive_link" class="abstract">1 Курс</a>
+                    </div>
+                </div>
+
+            </div>
+            
+            </div>
+            
+        </div>
+    </div>
+
     </div>
 
     <div class="days-scroll" id="days-container"></div>
 
-    <div class = "buttonSCR">
-        <button onclick="AutoScroll()">К завтрашнему дню</button>
+    <div class="header-center2" style="margin-top: 30px;">
+        <h2 class="subtitle">Расписание занятий</h2>
+        <p class="date-info">Не прогружается? Рекомендую отключить обходы.</p>
     </div>
 
-    <a href="https://tulsu.ru/schedule/?search=220252" target="_blank" class="abstract">Посмотреть расписание</a>
-    <a href="Лабы_и_практики.html" class="abstract">Лабораторные работы, практики, учебники, курсовые и архив</a>
-    <a href="DOP//Konsp/konspekts.html"  class="abstract">Конспекты</a>
-    <div class="footer-contact">
-        Нашли ошибку? Чего-то не хватает? <br>Пиши в тг: <a href="https://t.me/fdjiiden">@fdjiiden</a>
-    </div>
+    <div class="schedule-scroll" id="schedule-container"></div>
     
-    <p class="Version">V2.2!</p>
+    <div class="footer-contact">
+    <div class="feedback"> Нашли ошибку? Чего-то не хватает? <br>Пиши в тг: <a href="https://t.me/fdjiiden">@fdjiiden</a></div>
+    <div class="disclaimer"> Данный ресурс является некоммерческим студенческим проектом и не является официальным сайтом ФГБОУ ВО «Тульский государственный университет» (ТулГУ). Все товарные знаки, логотипы, названия и материалы расписания принадлежат их законным правообладателям и используются исключительно в ознакомительных и учебных целях. Актуальная официальная информация публикуется на сайте <a href="https://tulsu.ru" target="_blank" rel="noopener noreferrer">tulsu.ru</a>.</div>
+</div>
     <script src="main.js"></script>
 </body>
 </html>

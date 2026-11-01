@@ -1,10 +1,10 @@
 * {
     box-sizing: border-box;
 }
-body::-webkit-scrollbar {
-    display: none;
-    }
-body{
+
+body {
+    margin: 0;
+    padding: 0;
     animation: fadeIn 1ms ease-in-out;
 }
 @keyframes fadeIn {
@@ -24,21 +24,21 @@ body{
     left: 20px;
     top: 25px;
 }
-.header-center {
+.header-center, .header-center2 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5px; /* Это создаст ровный маленький отступ между всеми элементами внутри */
+    gap: 5px;
 }
-
-.subtitle {
-    margin: 0; /* Убираем гигантский стандартный отступ сверху и снизу */
+.header-center2{
+    padding: 10px
 }
+.subtitle {margin: 0;}
 
 
 .date-info {
-    margin: 0; /* Убираем отступы у даты */
-    opacity: 0.9; /* Делаем дату чуть менее яркой, чтобы акцент был на заголовке */
+    margin: 0;
+    opacity: 0.9;
 }
 
 .header-center p {
@@ -53,13 +53,13 @@ body{
     padding: 20px 20px 5px 20px;
 }
 .day-column {
-    width: max-content; /*подстраиваеться под текст */
+    width: max-content;
     min-width: 200px;
     max-width: 350px;
     min-height: 300px;
     max-height: 400px;
     background: white;
-    border-radius: 12px;
+    border-radius: 20px;
     padding: 15px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     flex-shrink: 0;  
@@ -124,19 +124,6 @@ body{
     display: none;
 }
 
-.buttonSCR{
-    padding: 0 10px 10px 10px; 
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-}
-
-
-
-/* Эффект при клике */
-.buttonSCR button:active {
-    transform: translateY(0);    /* При нажатии кнопка возвращается на место */
-}
 
 .footer-contact{
     text-align: center;
@@ -152,8 +139,8 @@ body{
 }
 
 .Style{
-    width: 50px;
-    height: 50px;
+    height: 20%;
+    width: 13%;
     border: none;
     cursor: pointer;
     background-repeat: no-repeat;
@@ -161,188 +148,435 @@ body{
     background-size: contain;
     position: absolute;
     right: 20px;
-    top: 35px;
+    top: 7px;
     cursor: pointer;
+    background-size: contain;
 }
 .blank{
     text-align: center;
 }
-/*------------------------------------------------------------ Лабы_и_практики ---------------------------------------------------------------------------------------------*/ 
-.a2{
+
+.buttonSCR, .buttonSCR_ {
     display: flex;
-    justify-content: space-between;
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    padding: 15px;
+    border: none;
+    will-change: transform;
+    backface-visibility: hidden; 
+    -webkit-font-smoothing: subpixel-antialiased;
 }
-.a2 a, .a2 button{
-    margin-top: 20px;
-    font-size: 20px;
-    text-decoration: none;
-    text-align: center;
-    padding: 50px;
-    flex: 1;
-    border-radius: 20px;
-    border-width: 1px;
-    border-style: solid;
+.buttonSCR_{
+    padding: 7px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
-.Prog, .OpenKurVB1{
-    margin-left: 50px;
+.buttonSCR:hover, .buttonSCR_:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
-.CUCuT{
-    margin-left: 50px;
-    margin-right: 50px;
+.buttonSCR button:active, .buttonSCR_ button:active {
+    transform: translateY(0);    /* При нажатии кнопка возвращается на место */
 }
-.Phiz, .OpenKurVB2{
-    margin-right: 50px;
+.abstract{
+    position: relative;
+    margin-top: 5px;
+    display: flex;          
+    justify-content: center;
+    width: 100%;            
+    padding: 15px;    
+    text-decoration: none; 
+    transition: all 0.3s ease;
+    border-radius: 5px;
 }
-.a2 a:hover, .a2 button:hover{
-    transition: all 0.3s ease;      
+.abstract:hover {  
     transform: translateY(-3px); 
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); 
 }
-.a2 img {
-    max-width: 50px;
-    display: block;      
+/* ------------------------------------------------------------ Выпадающее окно --------------------------------------------------------------------------------------------- */
+.dropdown-wrapper {
     position: absolute;
-    transform: translate(-40px, 10px);
-}
-.strelka{
-    position: absolute;
-    max-width: 50px;
-    left: 20px;
+    right: 20px;
     top: 35px;
-    cursor: pointer;
+    z-index: 1000;
 }
-#dialog1, #dialog2, #dialog3 {
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    padding: 20px;
-    height: 120px;
-    width: 300px;
-}
-#dialog1[open], #dialog2[open], #dialog3[open] {
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    gap: 15px;
-}
-#dialog1 a, #dialog2 a, #dialog3 a{
-    height: 50px;
-    width: 120px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 0;
-    transition: 0.2s ease;
-}
-#dialog1 button, #dialog2 button, #dialog3 button{
-    color: #8b0000; 
-    border-radius: 10px; 
-    border: none; 
-    cursor: pointer;
+.dropdown-content {
+    display: none; 
     position: absolute;
+    top: 130%; 
     right: 0;
-    margin-right: 3px;
-    top:0;
-    margin-top: 3px;
-    font-size: 18px;
-    transition: 0.2s ease;
+    width: 350px; 
+    padding: 20px;
+    border-radius: 12px;
+    text-align: left;
 }
-#dialog1 a:hover, #dialog2 a:hover, #dialog3 a:hover{
-    background-color: #6b0000;
-    transform: translateY(-3px); 
-    border: none;
-}
-#dialog3{
-    width: 600px;
-    height: 140px;
-}
-#dialog3 a{
-    height: 70px;
-    width: 300px;
-}
-#dialog1 button:hover, #dialog2 button:hover, #dialog3 button:hover{
-    color: #ccc;
-    background-color: #8b0000;
-}
-.Disk_p{
-    margin: 5px;
-    text-decoration: none;
-    color: white;
-    background-color: black;
-    border: 1px solid black;
-    border-radius: 10px;
-    padding: 10px;
+.dropdown-content.show {
+    display: block;
+    animation: fadeInMenu 0.3s ease;
 }
 
+.dropdown-content h3 {
+    margin-top: 0;
+    font-size: 18px;
+}
+.left-dropdown-wrapper {
+    position: absolute;
+    left: 20px;
+    top: 90px; 
+    z-index: 1000;
+}
+
+.left-dropdown-content {
+    display: none; 
+    position: absolute;
+    top: 130%; 
+    left: 0; 
+    width: 300px; 
+    padding: 20px;
+    border-radius: 12px;
+    text-align: left; 
+}
+.left-dropdown-content.show {
+    display: block;
+    animation: fadeInMenu 0.3s ease;
+}
+
+.left-dropdown-content h3 {
+    margin-top: 0;
+    font-size: 18px;
+}
+
+/* Обертка для кнопок внутри главного меню */
+.sub-dropdown-wrapper {
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.sub-dropdown-wrapper .buttonSCR {
+    width: 100%;
+    justify-content: space-between; 
+}
+.sub-dropdown-content {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 105%; 
+    width: 250px;
+    padding: 15px;
+    border-radius: 12px;
+    z-index: 1001;
+}
+.sub-dropdown-content.show {
+    display: block;
+    animation: fadeInMenu 0.3s ease;
+}
+
+.sub-dropdown-content h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+@keyframes fadeInMenu {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* ------------------------------------------------------------ Расписание --------------------------------------------------------------------------------------------- */
+.schedule-scroll {
+    display: flex;
+    overflow-x: auto;
+    gap: 30px;
+    padding: 20px 20px 5px 20px;
+    margin-bottom: -0 !important; 
+    align-items: flex-start;
+}
+.schedule-scroll::-webkit-scrollbar {
+    display: none;
+}
+.schedule-day-column {
+    min-width: 340px;
+    max-width: 360px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+}
+.schedule-day-title {
+    font-weight: 800;
+    font-size: 20px;
+    margin-bottom: 20px;
+    padding-left: 60px;
+}
+.timeline-row {
+    display: flex;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.timeline-time {
+    width: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative; /* Для позиционирования времени поверх линии */
+    font-weight: bold;
+    font-size: 14px;
+}
+/* Теперь линия одна и она тянется от верха до низа */
+.timeline-line {
+    width: 2px;
+    flex-grow: 1;
+    margin: 4px 0;
+    border-radius: 2px;
+}
+/* Текст времени появляется строго по центру поверх линии */
+.time-duration {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 11px;
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 2px 4px;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+.timeline-row.expanded .time-duration {
+    opacity: 1;
+}
+/* min-width: 0 спасает карточку от растягивания длинным текстом */
+.timeline-content {
+    flex-grow: 1;
+    padding-left: 10px;
+    min-width: 0; 
+}
+.lesson-card {
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 105px; 
+    width: 300px;
+}
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    gap: 10px;
+}
+.lesson-type-pill {
+    font-size: 10px; 
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 12px;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.2;
+}
+.expand-arrow {
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    margin-top: 5px;
+}
+.timeline-row.expanded .expand-arrow {
+    transform: rotate(180deg);
+}
+.lesson-title {
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1.3;
+    margin-bottom: 15px;
+}
+.collapsed-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: auto;
+}
+.tag-aud, .tag-prep {
+    font-size: 11px;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 12px;
+}
+.expandable-area {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.4s ease, margin-top 0.4s ease;
+}
+.timeline-row.expanded .expandable-area {
+    max-height: 200px;
+    opacity: 1;
+    margin-top: 15px;
+}
+.expand-divider {
+    height: 1px;
+    margin-bottom: 12px;
+}
+.expand-btn {
+    display: block;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 12px;
+    transition: filter 0.2s;
+}
+.expand-btn:hover {
+    filter: brightness(0.9);
+}
+.btn-subtext {
+    font-size: 12px;
+    font-weight: normal;
+    opacity: 0.8;
+    margin-top: 2px;
+}
+.break-row {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+    margin-left: 5px
+}
+.break-pill {
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 12px;
+    padding: 4px 0;
+    width: calc(100% - 70px);
+    text-align: center;
+}
+/* Курсор-ладонь для ленты домашних заданий */
+#days-container {
+    cursor: grab;
+}
+
+/* Курсор-ладонь для ленты домашних заданий */
+#days-container {
+    cursor: grab;
+}
+
+/* Универсальный класс, когда мышь ПРОСТО НАЖАТА */
+.is-dragging {
+    cursor: grabbing !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+}
+
+/* Блокируем клики ТОЛЬКО когда мы РЕАЛЬНО ТЯНЕМ ленту в стороны (свайп) */
+.is-actually-dragging * {
+    pointer-events: none !important;
+}
+.footer-contact{
+    background-color: #A0A0A0;
+    min-height: 100px;
+}
+
+
+/*Всё остальное говно*/
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    padding: 15px 20px 20px !important;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 0 !important;
+}
+.feedback a {
+    color: #4a90e2;
+    text-decoration: none;
+    font-weight: bold;
+    transition: opacity 0.2s;
+}
 /* ------------------------------------------------------------ Мобильная версия --------------------------------------------------------------------------------------------- */
 @media (max-width: 900px) {
     .top-bar {
-        /* Уменьшаем общую высоту шапки */
-        max-height: 100px; 
-        padding: 15px 0 25px 0;
+        max-height: none; 
+        min-height: auto;
+        padding: 20px 15px;
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-end; /* Подтягиваем содержимое к низу шапки */
-        position: relative;
-    }
-    
-    .TulGY {
-        position: absolute;
-        width: 90px; /* Еще чуть компактнее */
-        top: 45px;
-        left: 10px;
-    }
-
-    .Style {
-        position: absolute;
-        top: 40px;
-        right: 10px;
-        width: 35px; /* Ограничим размер иконки переключателя */
-    }
-    .strelka {
-        position: absolute;
-        left: 10px;
-        top: 40px;
-        width: 35px;
-    }
-    .subtitle {
-    margin-top: 50px !important; /* Отступ ровно столько, чтобы не задеть логотип */
-    margin-bottom: 10px;
-    line-height: 1.2; /* Чтобы строки не слипались */
-    font-size: 1rem; /* Чуть уменьшим, чтобы текст не дробился на много строк */
-    }
-
-
-    .a2 {
         flex-direction: column;
         align-items: center;
         gap: 15px;
-        padding: 0 20px;
-        margin: 10px;
+        position: relative;
     }
-    .a2 a, .a2 button {
-        width: 100%;
-        margin: 0;
-        padding: 30px 10px; 
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+
+    .TulGY {
+        position: static; 
+        width: 180px; 
+        margin-bottom: 5px;
     }
-    .a2 img {
+    .subtitle {
+        margin-top: 0 !important;
+        font-size: 1.2rem;
+        text-align: center;
+        line-height: 1.3;
+    }
+    .dropdown-wrapper {
         position: static;
-        transform: none;
-        margin-bottom: 10px;
+        width: 100%;
+        margin-top: 10px;
     }
-    #dialog3 {
-        display: flex;       
-        flex-wrap: wrap;    
-        gap: 10px;
+
+    .dropdown-wrapper .buttonSCR {
+        width: 100%;
         justify-content: center;
-        min-height: min-content;
-        height: 200px;
     }
-    #dialog1 button, #dialog2 button, #dialog3 button{
-    margin: 2px;
+
+    .dropdown-content {
+        width: 90vw; 
+        left: 5vw;
+        right: 5vw;
+        top: auto;
+        box-sizing: border-box;
+    }
+    .sub-dropdown-content {
+        position: static;
+        width: 100%;
+        box-sizing: border-box;
+        margin-top: 5px;
+        padding: 10px 15px;
+        background-color: rgba(150, 150, 150, 0.05);
+        box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+    }
+    .Style {
+        top: 20px;
+        right: 20px;
+        width: 25px;
+        height: 25px;
+    }
+    .days-scroll, .schedule-scroll {
+        padding: 15px 10px;
+        gap: 15px;
+    }
+    .day-column {
+        min-width: 260px;
+        width: 85vw;
+        max-width: 100%;
+    }
+
+    .schedule-day-column {
+        min-width: 280px;
+        width: 90vw;
+    }
+
+    .schedule-day-title {
+        padding-left: 20px;
+    }
+    .lesson-card {
+        width: 100%;
     }
 }
+
+
+
+
