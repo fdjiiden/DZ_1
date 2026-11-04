@@ -45,9 +45,6 @@ body { font-family: sans-serif; background: #f0e9e4; margin: 0; }
     color: white;
 }
 
-.buttonSCR:hover, .buttonSCR_:hover {
-    background-color: #d62f2f;
-}
 .dropdown-content, .left-dropdown-content, .sub-dropdown-content {
     background-color: #ffffff;
     color: #000000;
@@ -75,7 +72,7 @@ body { font-family: sans-serif; background: #f0e9e4; margin: 0; }
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 .lesson-title { color: #1a1a1a; }
-.expand-arrow { color: #333; } /* Цвет галочки */
+.expand-arrow { color: #333; }
 .tag-aud, .btn-aud { background-color: #a8b0aa; color: #fff; }
 .tag-prep, .btn-prep { background-color: #9b2a2a; color: #fff; }
 .expand-divider { background-color: #e0e0e0; }

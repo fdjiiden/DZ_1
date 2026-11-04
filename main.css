@@ -164,12 +164,12 @@ body {
     transition: all 0.3s ease;
     font-size: 16px;
     padding: 15px;
-    border: none;
+    border: #d62f2f;
     will-change: transform;
     backface-visibility: hidden; 
     -webkit-font-smoothing: subpixel-antialiased;
 }
-.buttonSCR_{
+.buttonSCR_, .buttonSCR{
     padding: 7px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
@@ -343,7 +343,6 @@ body {
 .timeline-row.expanded .time-duration {
     opacity: 1;
 }
-/* min-width: 0 спасает карточку от растягивания длинным текстом */
 .timeline-content {
     flex-grow: 1;
     padding-left: 10px;
@@ -434,8 +433,8 @@ body {
 .btn-subtext {
     font-size: 12px;
     font-weight: normal;
-    opacity: 0.8;
     margin-top: 2px;
+    color: white;
 }
 .break-row {
     display: flex;
@@ -579,7 +578,3 @@ body {
         width: 100%;
     }
 }
-
-
-
-
