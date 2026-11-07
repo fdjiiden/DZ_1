@@ -1,0 +1,33 @@
+name: Обновление расписания ТулГУ
+
+on:
+  schedule:
+    - cron: '0 2 * * *' 
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Установка Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+          
+      - name: Установка библиотек
+        run: pip install requests
+        
+      - name: Скачивание расписания
+        run: python scraper.py
+        
+      - name: Сохранение изменений в репозиторий
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add tulsu_schedule.json
+          git commit -m "Автоматическое обновление расписания ТулГУ" || echo "Нет изменений"
+          git push
