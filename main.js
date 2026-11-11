@@ -313,12 +313,38 @@ async function loadUniversitySchedule() {
         sortedDates.forEach(date => {
             const lessons = scheduleByDate[date];
             
+            // --- ЛОГИКА ФИЛЬТРАЦИИ И ОБЪЕДИНЕНИЯ ФИЗКУЛЬТУРЫ ---
+            const filteredLessons = [];
+            const seenPeSlots = new Set();
+
+            lessons.forEach(lesson => {
+                const title = lesson.DISCIP || "";
+                const time = lesson.TIME_Z || "";
+                const isPE = title.toLowerCase().includes('физическая культура');
+
+                if (isPE) {
+                    const uniqueKey = time; // Группируем по точному времени
+                    if (!seenPeSlots.has(uniqueKey)) {
+                        seenPeSlots.add(uniqueKey);
+                        // Создаем копию занятия, очищая преподавателя и аудиторию
+                        filteredLessons.push({
+                            ...lesson,
+                            PREP: "",
+                            AUD: ""
+                        });
+                    }
+                } else {
+                    filteredLessons.push(lesson);
+                }
+            });
+
             // Если это сегодняшний день, вешаем класс-якорь
             let isTargetCol = (date === targetDateStr) ? " schedule-today-target" : "";
             let dayHtml = `<div class="schedule-day-column${isTargetCol}"><div class="schedule-day-title">${formatDateHeader(date)}</div>`;
             let lastEndTime = null;
 
-            lessons.forEach((lesson) => {
+            // Используем отфильтрованный массив filteredLessons
+            filteredLessons.forEach((lesson) => {
                 const times = (lesson.TIME_Z || "").split(' - ');
                 const startTime = times[0] || "";
                 const endTime = times[1] || "";
@@ -334,7 +360,6 @@ async function loadUniversitySchedule() {
                 if (lastEndTime && startTime) {
                     const breakMins = parseTime(startTime) - parseTime(lastEndTime);
                     if (breakMins > 0) {
-                        // ТЕПЕРЬ ПЕРЕРЫВЫ ПИШУТСЯ КРАСИВО: 1ч 35м
                         dayHtml += `<div class="break-row"><div class="break-pill">Перерыв ${formatDuration(breakMins)}</div></div>`;
                     }
                 }
@@ -386,7 +411,6 @@ async function loadUniversitySchedule() {
             container.innerHTML += dayHtml;
         });
 
-        // После того как карточки сгенерированы, автоматически крутим ленту!
         AutoScroll();
 
     } catch (error) {
@@ -394,8 +418,8 @@ async function loadUniversitySchedule() {
         container.innerHTML = "<p style='text-align:center;'>Расписание недоступно.</p>";
     }
 }
-// --- УНИВЕРСАЛЬНАЯ ПРОКРУТКА ПЕРЕТАСКИВАНИЕМ (УМНАЯ) ---
-// --- УНИВЕРСАЛЬНАЯ ПРОКРУТКА ПЕРЕТАСКИВАНИЕМ (ФИНАЛ) ---
+
+// --- УНИВЕРСАЛЬНАЯ ПРОКРУТКА ПЕРЕТАСКИВАНИЕМ ---
     function enableDragToScroll(containerId) {
         const slider = document.getElementById(containerId);
         if (!slider) return;
