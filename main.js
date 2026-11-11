@@ -76,9 +76,7 @@ const renderSchedule = async () => {
 
 
 // АВТОМАТИЧЕСКАЯ ПРОКРУТКА
-// АВТОМАТИЧЕСКАЯ ПРОКРУТКА
 function AutoScroll() {
-    // 1. Крутим ленту ДЗ (как было)
     const hwContainer = document.getElementById('days-container');
     if (hwContainer) {
         const targetCard = hwContainer.querySelector('.tomorrow1');
@@ -87,7 +85,6 @@ function AutoScroll() {
         }
     }
     
-    // 2. Крутим ленту Расписания к сегодняшнему дню
     const scheduleContainer = document.getElementById('schedule-container');
     if (scheduleContainer) {
         const todayCol = scheduleContainer.querySelector('.schedule-today-target');
@@ -313,7 +310,6 @@ async function loadUniversitySchedule() {
         sortedDates.forEach(date => {
             const lessons = scheduleByDate[date];
             
-            // --- ЛОГИКА ФИЛЬТРАЦИИ И ОБЪЕДИНЕНИЯ ФИЗКУЛЬТУРЫ ---
             const filteredLessons = [];
             const seenPeSlots = new Set();
 
