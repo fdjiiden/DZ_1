@@ -313,6 +313,7 @@ body {
     margin-bottom: 14px;
     cursor: pointer;
     position: relative;
+    min-height: 125px; 
 }
 
 .timeline-time {
@@ -431,7 +432,16 @@ body {
     font-size: 15px;
     font-weight: 700;
     line-height: 1.25;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 38px; 
+}
+.timeline-row.expanded .lesson-title {
+    -webkit-line-clamp: unset;
+    overflow: visible;
 }
 
 .collapsed-tags {
@@ -439,6 +449,7 @@ body {
     gap: 6px;
     flex-wrap: wrap;
     margin-top: auto;
+    min-height: 22px;
 }
 
 .tag-aud, .tag-prep {
