@@ -76,7 +76,9 @@ const renderSchedule = async () => {
 
 
 // АВТОМАТИЧЕСКАЯ ПРОКРУТКА
+// АВТОМАТИЧЕСКАЯ ПРОКРУТКА
 function AutoScroll() {
+    // 1. Крутим ленту ДЗ (как было)
     const hwContainer = document.getElementById('days-container');
     if (hwContainer) {
         const targetCard = hwContainer.querySelector('.tomorrow1');
@@ -85,6 +87,7 @@ function AutoScroll() {
         }
     }
     
+    // 2. Крутим ленту Расписания к сегодняшнему дню
     const scheduleContainer = document.getElementById('schedule-container');
     if (scheduleContainer) {
         const todayCol = scheduleContainer.querySelector('.schedule-today-target');
@@ -265,7 +268,7 @@ const formatDateHeader = (dateStr) => {
 
 const getTypeColor = (type) => {
     let t = type.toLowerCase();
-    if (t.includes('лекци')) return '#3ba88e'; 
+    if (t.includes('лекци')) return '#148175'; // Изумрудный как в макете
     if (t.includes('лабораторн')) return '#e38b55'; 
     if (t.includes('практическ')) return '#44d362'; 
     return '#4a90e2';
@@ -294,7 +297,6 @@ async function loadUniversitySchedule() {
         };
         const sortedDates = Object.keys(scheduleByDate).sort((a, b) => parseDate(a) - parseDate(b));
 
-        // --- ИЩЕМ СЕГОДНЯШНИЙ (ИЛИ БЛИЖАЙШИЙ БУДУЩИЙ) ДЕНЬ ---
         let today = new Date();
         today.setHours(0, 0, 0, 0);
         let targetDateStr = null;
@@ -309,7 +311,6 @@ async function loadUniversitySchedule() {
 
         sortedDates.forEach(date => {
             const lessons = scheduleByDate[date];
-            
             const filteredLessons = [];
             const seenPeSlots = new Set();
 
@@ -319,27 +320,19 @@ async function loadUniversitySchedule() {
                 const isPE = title.toLowerCase().includes('физическая культура');
 
                 if (isPE) {
-                    const uniqueKey = time; // Группируем по точному времени
-                    if (!seenPeSlots.has(uniqueKey)) {
-                        seenPeSlots.add(uniqueKey);
-                        // Создаем копию занятия, очищая преподавателя и аудиторию
-                        filteredLessons.push({
-                            ...lesson,
-                            PREP: "",
-                            AUD: ""
-                        });
+                    if (!seenPeSlots.has(time)) {
+                        seenPeSlots.add(time);
+                        filteredLessons.push({ ...lesson, PREP: "", AUD: "" });
                     }
                 } else {
                     filteredLessons.push(lesson);
                 }
             });
 
-            // Если это сегодняшний день, вешаем класс-якорь
             let isTargetCol = (date === targetDateStr) ? " schedule-today-target" : "";
             let dayHtml = `<div class="schedule-day-column${isTargetCol}"><div class="schedule-day-title">${formatDateHeader(date)}</div>`;
             let lastEndTime = null;
 
-            // Используем отфильтрованный массив filteredLessons
             filteredLessons.forEach((lesson) => {
                 const times = (lesson.TIME_Z || "").split(' - ');
                 const startTime = times[0] || "";
@@ -366,21 +359,19 @@ async function loadUniversitySchedule() {
 
                 dayHtml += `
                 <div class="timeline-row" onclick="this.classList.toggle('expanded')">
-                    <div class="timeline-time">
+                    <div class="timeline-time" style="background-color: ${typeColor};">
                         <span>${startTime}</span>
-                        
                         <div class="timeline-line"></div>
-                        
                         <span class="time-duration">${duration}</span>
+                        <div class="timeline-line"></div>
                         <span>${endTime}</span>
                     </div>
-                    <div class="timeline-content">
-                        <div class="lesson-card" style="border-left: 6px solid ${typeColor}">
+                    <div class="lesson-card">
+                        <div class="card-accent-bar"></div>
+                        <div class="card-body">
                             <div class="card-header">
                                 <span class="lesson-type-pill" style="background: ${typeColor}; color: #fff;">${type}</span>
-                                <svg class="expand-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                                </svg>
+                                <span class="expand-arrow">▾</span>
                             </div>
                             <div class="lesson-title">${title}</div>
                             <div class="collapsed-tags">
@@ -391,12 +382,12 @@ async function loadUniversitySchedule() {
                                 <div class="expand-divider"></div>
                                 ${teacherFull ? `
                                 <a href="${teacherLink}" target="_blank" class="expand-btn btn-prep" onclick="event.stopPropagation()">
-                                    <div>${teacherFull}</div>
+                                    <div class="btn-maintext">${teacherFull}</div>
                                     <div class="btn-subtext">Посмотреть расписание</div>
                                 </a>` : ''}
                                 ${aud ? `
                                 <a href="${audLink}" target="_blank" class="expand-btn btn-aud" onclick="event.stopPropagation()">
-                                    <div class="btn-subtext">Посмотреть расписание аудитории</div>
+                                    <div class="btn-maintext">Посмотреть расписание аудитории</div>
                                 </a>` : ''}
                             </div>
                         </div>
@@ -407,7 +398,7 @@ async function loadUniversitySchedule() {
             container.innerHTML += dayHtml;
         });
 
-        AutoScroll();
+        if (typeof AutoScroll === 'function') AutoScroll();
 
     } catch (error) {
         console.error(error);

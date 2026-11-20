@@ -61,19 +61,24 @@ body { font-family: sans-serif; background: #f0e9e4; margin: 0; }
 }
 /* ------------------------------------------------------------ Расписание --------------------------------------------------------------------------------------------- */
 .schedule-day-title { color: #2b3036; }
-.timeline-time { color: #4a4a4a; }
-.timeline-line { background-color: #a8b0aa; }
-.time-duration { 
-    color: #4a4a4a; 
-    background-color: #f0e9e4;
-}
 .lesson-card { 
     background: #ffffff; 
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
 }
-.lesson-title { color: #1a1a1a; }
-.expand-arrow { color: #333; }
-.tag-aud, .btn-aud { background-color: #a8b0aa; color: #fff; }
-.tag-prep, .btn-prep { background-color: #9b2a2a; color: #fff; }
-.expand-divider { background-color: #e0e0e0; }
+.card-accent-bar { background-color: #a0a0a0; }
+.lesson-title { color: #000000; }
+.expand-arrow { color: #000000; }
+
+.tag-aud, .btn-aud { 
+    background-color: #a0a0a0; 
+    color: #000000; 
+}
+.tag-prep, .btn-prep { 
+    background-color: #8b0000; 
+    color: #ffffff; 
+}
+.btn-prep .btn-subtext { 
+    color: #d0a0a0;
+}
+.expand-divider { background-color: #a0a0a0; }
 .break-pill { background-color: #c4c9c5; color: #4a4a4a; }
