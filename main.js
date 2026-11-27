@@ -309,14 +309,22 @@ async function loadUniversitySchedule() {
 
         container.innerHTML = '';
 
+        const typeNames = {
+            'зч': 'Зачёт',
+            'з': 'Зачёт',
+            'э': 'Экзамен',
+            'экз': 'Экзамен',
+            'кр': 'Курсовая работа'
+        };
+
         sortedDates.forEach(date => {
             const lessons = scheduleByDate[date];
             const filteredLessons = [];
             const seenPeSlots = new Set();
 
             lessons.forEach(lesson => {
-                const title = lesson.DISCIP || "";
-                const time = lesson.TIME_Z || "";
+                const title = String(lesson.DISCIP || "");
+                const time = String(lesson.TIME_Z || "");
                 const isPE = title.toLowerCase().includes('физическая культура');
 
                 if (isPE) {
@@ -334,16 +342,25 @@ async function loadUniversitySchedule() {
             let lastEndTime = null;
 
             filteredLessons.forEach((lesson) => {
-                const times = (lesson.TIME_Z || "").split(' - ');
+                const times = String(lesson.TIME_Z || "").split(' - ');
                 const startTime = times[0] || "";
                 const endTime = times[1] || "";
-                const title = lesson.DISCIP || "Без названия";
-                const aud = lesson.AUD || "";
-                const teacherFull = lesson.PREP || "";
+                const title = String(lesson.DISCIP || "Без названия");
+                const aud = String(lesson.AUD || "");
+                const teacherFull = String(lesson.PREP || "");
                 const teacherShort = formatShortName(teacherFull);
-                const type = lesson.KOW || "";
-                const typeColor = getTypeColor(type);
-                
+                const type = String(lesson.KOW || "");
+
+                const typeClean = type.trim().toLowerCase();
+                const displayType = typeNames[typeClean] || type;
+
+                const isExam = ['э', 'з', 'зч', 'экз', 'кр'].includes(typeClean)
+                    || /экзамен|зачет|зачёт|конец семестра|курсовая|консультац/i.test(typeClean)
+                    || /\((э|з|зч|экз|кр)\)/i.test(title);
+
+                const typeColor = isExam ? '#CA202E' : (getTypeColor(type) || '#6c757d');
+                const examClass = isExam ? ' exam-row' : '';
+
                 const duration = (startTime && endTime) ? formatDuration(parseTime(endTime) - parseTime(startTime)) : "";
 
                 if (lastEndTime && startTime) {
@@ -358,7 +375,7 @@ async function loadUniversitySchedule() {
                 const teacherLink = `https://tulsu.ru/schedule/?search=${encodeURIComponent(teacherFull)}`;
 
                 dayHtml += `
-                <div class="timeline-row" onclick="this.classList.toggle('expanded')">
+                <div class="timeline-row${examClass}" onclick="this.classList.toggle('expanded')">
                     <div class="timeline-time" style="background-color: ${typeColor};">
                         <span>${startTime}</span>
                         <div class="timeline-line"></div>
@@ -370,7 +387,7 @@ async function loadUniversitySchedule() {
                         <div class="card-accent-bar"></div>
                         <div class="card-body">
                             <div class="card-header">
-                                <span class="lesson-type-pill" style="background: ${typeColor}; color: #fff;">${type}</span>
+                                <span class="lesson-type-pill" style="background: ${typeColor}; color: #fff;">${displayType}</span>
                                 <span class="expand-arrow">▾</span>
                             </div>
                             <div class="lesson-title">${title}</div>

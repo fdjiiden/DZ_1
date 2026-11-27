@@ -82,3 +82,20 @@ body { font-family: sans-serif; background: #f0e9e4; margin: 0; }
 }
 .expand-divider { background-color: #a0a0a0; }
 .break-pill { background-color: #c4c9c5; color: #4a4a4a; }
+.timeline-row.exam-row .timeline-time,
+.timeline-row.exam-row .lesson-type-pill,
+.timeline-row.exam-row .card-accent-bar {
+    background-color: #CA202E !important;
+}
+
+.timeline-row.exam-row .tag-aud,
+.timeline-row.exam-row .btn-aud {
+    background-color: #CA202E;
+    color: #ffffff;
+}
+
+.timeline-row.exam-row .tag-prep,
+.timeline-row.exam-row .btn-prep {
+    background-color: #8B0000;
+    color: #ffffff;
+}

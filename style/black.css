@@ -55,7 +55,6 @@ body { font-family: sans-serif; background: #3d3b3a; margin: 0; }
     color: #eeeeee;
 }
 /* ------------------------------------------------------------ Расписание --------------------------------------------------------------------------------------------- */
-/* ------------------------------------------------------------ Расписание (Тёмная тема) --------------------------------------------------------------------------------------------- */
 .schedule-day-title { color: #eeeeee; }
 .subtitle { color: #ffffff; }
 .timeline-time { color: #ffffff; }
@@ -87,3 +86,16 @@ body { font-family: sans-serif; background: #3d3b3a; margin: 0; }
 
 .expand-divider { background-color: #444444; }
 .break-pill { background-color: #444444; color: #eeeeee;}
+.timeline-row.exam-row .timeline-time,
+.timeline-row.exam-row .lesson-type-pill,
+.timeline-row.exam-row .card-accent-bar {
+    background-color: #8B0000 !important;
+}
+
+.timeline-row.exam-row .tag-aud,
+.timeline-row.exam-row .btn-aud,
+.timeline-row.exam-row .tag-prep,
+.timeline-row.exam-row .btn-prep {
+    background-color: #8B0000;
+    color: #ffffff;
+}
